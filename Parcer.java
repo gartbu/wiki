@@ -29,34 +29,46 @@ public class Parcer {
         Elements articles = body.select("h1[class=firstHeading]");
         ArrayList<String> arrayList = new ArrayList<>();
         arrayList.add(articles.text());
-        try(FileWriter writer = new FileWriter("articles.txt", true))
+        for (int i = 0; i < arrayList.size(); i++) {
+            String value = arrayList.get(i);
+            arrayList.add(value);
+            //System.out.println(value);
+
+            System.out.println(arrayList);
+        }
+        int arraySize = arrayList.size();
+        System.out.println(arraySize);
+
+        //ArrayList<String> arrayList = new ArrayList<>();
+        //arrayList.add(articles.text());
+        /*try(FileWriter writer = new FileWriter("articles.txt", true))
         {
             // запись всей строки
             String text = articles.text();
             writer.write(text+","+" ");
-            writer.flush();
-        }
-        for (Element article : articles){
-                String header = article.select("h1[class=firstHeading]").text();
-                while (true)
-                {
+            //writer.flush();
+        }*/
+        for (Element article : articles) {
+            String header = article.select("h1[class=firstHeading]").text();
+                while (true) {
                     String s = header;
                     if (s.equals("Философия"))
                         break;
-
-                String h[] = new String[3];
+                    else
+                        continue;
+                }
+                /*String h[] = new String[3];
                 h[0] = s;
-                /*h[1] = s;
-                h[2] = s;*/
+                *//*h[1] = s;
+                h[2] = s;*//*
                 for (int i = 0; i < 4; i++) {
                     System.out.println(h[i]);
                 }
-                }
-                }
+                }*/
 
+        }
 
-                System.out.println(arrayList);
-            }
+    }
 
     }
 
